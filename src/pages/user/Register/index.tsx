@@ -32,6 +32,7 @@ const Register: React.FC = () => {
         const defaultLoginSuccessMessage = '注册成功！';
         message.success(defaultLoginSuccessMessage);
 
+
         /** 此方法会跳转到 redirect 参数所在的位置 */
         // 若history接口仍未初始化完毕 直接返回
         if (!history) return;
@@ -69,6 +70,7 @@ const Register: React.FC = () => {
           initialValues={{
             autoLogin: true,
           }}
+
 
           //todo 了解 onFinish
           onFinish={async (values) => {

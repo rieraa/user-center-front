@@ -28,11 +28,11 @@ const Register: React.FC = () => {
     try {
       // 注册
       const id = await register(values);
-      if (id > 0) {
+
+
+      if (id) {
         const defaultLoginSuccessMessage = '注册成功！';
         message.success(defaultLoginSuccessMessage);
-
-
         /** 此方法会跳转到 redirect 参数所在的位置 */
         // 若history接口仍未初始化完毕 直接返回
         if (!history) return;
@@ -44,14 +44,12 @@ const Register: React.FC = () => {
           query,
         });
         return;
-      } else {
-        throw new Error(`register error id =${id}`)
       }
 
       // setUserLoginState(id);
-    } catch (error) {
+    } catch (error: any) {
       const defaultLoginFailureMessage = '注册失败，请重试！';
-      message.error(defaultLoginFailureMessage);
+      message.error(error.message ?? defaultLoginFailureMessage );
     }
   };
 
@@ -137,6 +135,20 @@ const Register: React.FC = () => {
                     min: 8,
                     type: 'string',
                     message: '长度不能小于 8',
+                  },
+                ]}
+              />
+              <ProFormText
+                name="yuCode"
+                fieldProps={{
+                  size: 'large',
+                  prefix: <UserOutlined className={styles.prefixIcon}/>,
+                }}
+                placeholder={'请输入编号'}
+                rules={[
+                  {
+                    required: true,
+                    message: '编号是必填项！',
                   },
                 ]}
               />

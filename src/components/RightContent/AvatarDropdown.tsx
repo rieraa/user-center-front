@@ -21,6 +21,7 @@ const loginOut = async () => {
   const { query = {}, search, pathname } = history.location;
   const { redirect } = query;
   // Note: There may be security issues, please note
+  //下面判断：如果当前页面不是登录页也不是其他需要重定向的页面就返回登录页
   if (window.location.pathname !== '/user/login' && !redirect) {
     history.replace({
       pathname: '/user/login',

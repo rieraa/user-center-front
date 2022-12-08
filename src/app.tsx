@@ -38,6 +38,7 @@ export async function getInitialState(): Promise<{
   loading?: boolean;
   fetchUserInfo?: () => Promise<API.CurrentUser | undefined>;
 }> {
+
   const fetchUserInfo = async () => {
     try {
       return await queryCurrentUser();

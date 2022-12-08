@@ -20,6 +20,12 @@ const Footer: React.FC = () => {
           href: 'https://github.com/rieraa',
           blankTarget: true,
         },
+        {
+          key: 'record',
+          title: <>闽ICP备2022018187号</>,
+          href: "https://beian.miit.gov.cn/",
+          blankTarget: true,
+        },
 
       ]}
     />

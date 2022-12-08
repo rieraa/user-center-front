@@ -12,6 +12,8 @@ import {message} from 'antd';
  */
 const request = extend({
   credentials: 'include', // 默认请求是否带上cookie
+  //指定每次请求的前缀
+  prefix: process.env.NODE_ENV === 'production' ? 'http://user-backend.ameee9.top' : undefined
   // requestType: 'form',
 });
 
